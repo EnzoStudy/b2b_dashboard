@@ -1,0 +1,47 @@
+
+{% extends 'mainpage/base.html' %}
+
+{% block title %}Performance{% endblock %}
+
+{% block content %}
+<h1>Performance Page</h1>
+
+<div class="container table-container">
+  <h2 class="text-center mb-4">사업 정보</h2>
+  <div class="mb-3">
+    <a href="{% url 'create_performance' %}" class="btn btn-primary">새 실적 추가</a>
+  </div>
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">사업명</th>
+        <th scope="col">참여인원</th>
+        <th scope="col">기간</th>
+        <th scope="col">결과</th>
+        <th scope="col">관리</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for performance in performances %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ performance.name }}</td>
+        <td>{{ performance.participants }}명</td>
+        <td>{{ performance.period_start|date:"Y.m" }} - {{ performance.period_end|date:"Y.m" }}</td>
+        <td>{{ performance.result }}</td>
+        <td>
+          <a href="{% url 'update_business' business.id %}" class="btn btn-sm btn-outline-primary">수정</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+{% endblock %}
