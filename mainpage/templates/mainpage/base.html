@@ -1,47 +1,75 @@
 <!-- mainpage/templates/mainpage/base.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Site{% endblock %}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        My Site
+      {% endblock %}
+    </title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Main</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  
+  
+  <body>
+
+
+
+    <div>
+      <header class="py-2 bg-body-tertiary border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+              <use xlink:href="#bootstrap" />
+            </svg>
+            <span class="fs-4">B2B DashBoard</span>
+          </a>
+        </div>
+      </header>
+
+      <nav class="py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap">
+          <ul class="nav me-auto">
             <li class="nav-item">
-              
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+              <a href="{% url 'index' %}" class="nav-link link-body-emphasis px-2 active" aria-current="page">홈</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'business_list' %}">사업</a>
-                
+              <a href="{% url 'business_list' %}" class="nav-link link-body-emphasis px-2">사업리스트</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'performance_list' %}">실적</a>
+              <a href="#" class="nav-link link-body-emphasis px-2">전략MAP</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a href="#" class="nav-link link-body-emphasis px-2">인력현황</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link link-body-emphasis px-2">사업결과</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'performance_list' %}" class="nav-link link-body-emphasis px-2">팀실적</a>
+            </li>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="#" class="nav-link link-body-emphasis px-2">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link link-body-emphasis px-2">Sign up</a>
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-
+      </nav>
+    </div>
     <div class="container mt-4">
-        {% block content %}
-        {% endblock %}
+      {% block content %}
+
+      {% endblock %}
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
